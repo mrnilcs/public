@@ -1,11 +1,16 @@
 import bluetooth
 
+# Set the Bluetooth device name
+bluetooth_name = "My_RPi_Bluetooth_Server"
+bluetooth.set_discoverable(True)
+bluetooth.advertise_service(server_sock, bluetooth_name)
+
 # Create a Bluetooth socket using RFCOMM protocol
 server_sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 server_sock.bind(("", bluetooth.PORT_ANY))
 server_sock.listen(1)
 
-print("Bluetooth server started, waiting for clients to connect.")
+print(f"Bluetooth server '{bluetooth_name}' started, waiting for clients to connect.")
 
 # Server main loop
 while True:
