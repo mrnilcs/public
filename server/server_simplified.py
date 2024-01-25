@@ -2,7 +2,6 @@ import bluetooth
 
 # Set the Bluetooth device name
 bluetooth_name = "My_RPi_Bluetooth_Server"
-bluetooth.set_discoverable(True)
 bluetooth.advertise_service(server_sock, bluetooth_name)
 
 # Create a Bluetooth socket using RFCOMM protocol
